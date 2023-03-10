@@ -52,8 +52,3 @@ export default {
     },
   },
 }
-
-/** 
-Dim x, y As Double
-for 
-*/
