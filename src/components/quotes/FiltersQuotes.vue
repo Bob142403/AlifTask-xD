@@ -19,14 +19,14 @@
       type="text"
       class="form-control mx-2"
       id="formGroupExampleInput3"
-      placeholder="Author"
+      placeholder="Автор"
       v-model="author"
     />
     <input
       type="text"
       class="form-control mx-2"
-      id="formGroupExampleInput3 "
-      placeholder="Quote"
+      id="formGroupExampleInput3"
+      placeholder="Цытата"
       v-model="quote"
     />
     <button class="btn btn-outline-success mx-2" @click="filterQuote">

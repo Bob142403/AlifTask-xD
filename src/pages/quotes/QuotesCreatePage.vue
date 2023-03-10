@@ -6,6 +6,9 @@
   const store = useStore()
   const router = useRouter()
 
+  store.commit('setAuthotInput', '')
+  store.commit('setQuoteInput', '')
+
   const text = ref('')
   const author = ref('')
   const genres = ref([])
@@ -50,8 +53,8 @@
   function addGenre() {
     if (checkText(genre.value)) {
       genres.value.push({ text: genre.value, id: new Date().toString() })
+      genre.value = ''
     }
-    genre.value = ''
   }
 </script>
 
@@ -61,9 +64,10 @@
       type="text"
       class="form-control"
       id="floatingInput"
-      placeholder="name@example.com"
+      placeholder="Цытата"
       v-model="text"
-      required
+      pattern="^.+"
+      title="Не Должен быть пустым"
     />
     <label for="floatingInput">Цытата</label>
   </div>
@@ -72,8 +76,10 @@
       type="text"
       class="form-control"
       id="floatingInput1"
-      placeholder="name@example.com"
+      placeholder="Автор"
       v-model="author"
+      pattern="^[A-Za-zА-Яа-яЁё\s]+"
+      title="Не Должен быть пустым и Только Латиские, Кирилица"
     />
     <label for="floatingInput1">Автор</label>
   </div>
@@ -85,6 +91,8 @@
       id="formGroupExampleInput3"
       placeholder="Жанр"
       v-model="genre"
+      pattern="^[A-Za-zА-Яа-яЁё\s]*"
+      title="Не Должен быть пустым и Только Латиские, Кирилица"
     />
     <button class="btn btn-outline-secondary ms-3" @click="addGenre">
       Добавить

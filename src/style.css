@@ -1,0 +1,9 @@
+input:invalid {
+  border-color: red;
+  color: red;
+  box-shadow: none;
+}
+input:focus:invalid {
+  border-color: red;
+  box-shadow: none;
+}

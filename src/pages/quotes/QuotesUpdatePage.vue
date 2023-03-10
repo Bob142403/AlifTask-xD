@@ -7,6 +7,9 @@
   const router = useRouter()
   const store = useStore()
 
+  store.commit('setAuthotInput', '')
+  store.commit('setQuoteInput', '')
+
   const text = ref(store.getters.getQuoteById(route.params.quoteId).text)
 
   const quoteInfo = computed(() =>
@@ -14,8 +17,8 @@
   )
 
   function delQuote() {
-    const idDel = confirm('Вы точно хотите удалить ?')
-    if (idDel) {
+    const isDel = confirm('Вы точно хотите удалить ?')
+    if (isDel) {
       store.commit('delQuoteById', route.params.quoteId)
       router.push('/')
     }
@@ -35,8 +38,10 @@
       type="text"
       class="form-control"
       id="floatingInput"
-      placeholder="name@example.com"
+      placeholder="Цытата"
       v-model="text"
+      pattern="^.+"
+      title="Не Должен быть пустым"
     />
     <label for="floatingInput">Цытата</label>
   </div>
@@ -49,4 +54,5 @@
     <button class="btn btn-danger" @click="delQuote">Удалить</button>
   </div>
 </template>
+
 <style scoped></style>

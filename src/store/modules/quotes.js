@@ -1,5 +1,3 @@
-import { isIntegerKey } from '@vue/shared'
-
 export default {
   state: {
     quotes: [],
