@@ -25,7 +25,7 @@
   }
 
   function updateQuote() {
-    if (text.value.trim()) {
+    if (text.value) {
       store.commit('updateQuoteById', { id: route.params.quoteId, text })
       router.push('/')
     }
@@ -39,7 +39,7 @@
       class="form-control"
       id="floatingInput"
       placeholder="Цытата"
-      v-model="text"
+      v-model.trim="text"
       pattern="^.+"
       title="Не Должен быть пустым"
     />

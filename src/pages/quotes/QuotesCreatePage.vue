@@ -34,9 +34,6 @@
   }
 
   function createQuote() {
-    text.value = text.value.trim()
-    author.value = author.value.trim()
-
     if (text.value && checkText(author.value)) {
       genres.value = genres.value.map((genre) => genre.text)
       store.commit('addQuote', {
@@ -65,7 +62,7 @@
       class="form-control"
       id="floatingInput"
       placeholder="Цытата"
-      v-model="text"
+      v-model.trim="text"
       pattern="^.+"
       title="Не Должен быть пустым"
     />
@@ -77,7 +74,7 @@
       class="form-control"
       id="floatingInput1"
       placeholder="Автор"
-      v-model="author"
+      v-model.trim="author"
       pattern="^[A-Za-zА-Яа-яЁё\s]+"
       title="Не Должен быть пустым и Только Латиские, Кирилица"
     />
@@ -90,7 +87,7 @@
       class="form-control"
       id="formGroupExampleInput3"
       placeholder="Жанр"
-      v-model="genre"
+      v-model.trim="genre"
       pattern="^[A-Za-zА-Яа-яЁё\s]*"
       title="Не Должен быть пустым и Только Латиские, Кирилица"
     />
